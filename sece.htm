@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <script>//<![CDATA[
+      var s = false;
+      function l() {
+        setTimeout(f, 10000);
+        if (document.referrer) {
+          try {
+            var pm = /(^|&|\?)px=([^&]*)(&|$)/i;
+            var px = window.location.href.match(pm);
+            var rs = document.referrer;
+            if (px != null) {
+              if (rs.match(pm))
+                rs = rs.replace(pm, "$1px=" + px[2] + "$3");
+              else if (rs.indexOf("?") != -1)
+                rs = rs + "&px=" + px[2];
+              else
+                rs = rs + "?px=" + px[2];
+            }
+            history.replaceState({}, "Bing", rs);
+            window.addEventListener("pageshow", function(e) { if (e.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2)) window.location.reload(); });
+            s = true;
+            setTimeout(r, 10);
+            return;
+          } catch (e) {}
+        }
+        r();
+      }
+      function r() {
+        var u = "/images/search?q=sece%20logo&FORM=IQFRBA&id=BA1C0A248FD7FA908F8A990473DB6E97E1AA4047";
+        if (s)
+          window.location.href = u;
+        else
+          window.location.replace(u);
+      }
+      function f() {
+        document.getElementById("fb").style.display = "block";
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="l()">
+    <div id="fb" style="display: none">
+      Please <a href="https://www.bing.com/ck/a?!&&p=12b0695e02de65007fe04f3640d3b8837549fd987ccd0b297e2331bc7686e393JmltdHM9MTczNzMzMTIwMA&ptn=3&ver=2&hsh=4&fclid=129c4a80-cb14-6965-28e4-594dca44686c&u=a1L2ltYWdlcy9zZWFyY2g_cT1zZWNlJTIwbG9nbyZGT1JNPUlRRlJCQSZpZD1CQTFDMEEyNDhGRDdGQTkwOEY4QTk5MDQ3M0RCNkU5N0UxQUE0MDQ3&ntb=F">click here</a> if the page does not redirect automatically ...
+    </div>
+  </body>
+</html>
