@@ -1,29 +1,41 @@
+import {useState,useEffect} from "react"
 import axios from "axios"
-import { useEffect, useState } from "react"
+const UseEffectAPI=()=>{
+    var[post,setPost]=useState([])
+    var [products, setProducts] = useState([]);
 
-const UseEffectAPI = () => {
-    var [posts, setPost] = useState([])
-    useEffect(() => {
-        axios
-            .get("https://jsonplaceholder.typicode.com/posts/")
-            .then((res) => {
-                console.log(res.data)
-                setPost(res.data)
-            })
-            .catch((err) => console.log(err))
+useEffect(()=>{
+    axios.get("https://jsonplaceholder.typicode.com/posts/")
+        .then((res)=>{
+            console.log(res.data);
+            setPost(res.data);
+        })
+        .catch((err)=>console.log(err));
 
-    }, [])
-    return (
-        <div>
-            <h1>this page is meant for useEffect with API.</h1>
-            <h3>The contents inside the my jsonplaceholder API posts</h3>
+        axios.get("https://fakestoreapi.com/products")
+        .then((res)=>{
+            console.log(res.data);
+            setProducts(res.data);
+        })
+        .catch((err)=>console.log(err));
+},[]);
+    return(
+            <div>
+                <h1>This is UseEffect Example</h1>
+                <h3>The content inside my JSONPlaceholder API post</h3>
             <ul>
-                {posts.map((post) => (
-                    <li key={post.id} style={{ listStyleType: "number" }}>{post.title}</li>
+            {post.map((element)=>(
+                    <li key={element.id} style={{listStyle:"number"}}>{element.title}</li>
                 ))}
             </ul>
-        </div>
+        <h3>The content inside my JSONPlaceholder API product</h3>
+    <ul>
+    {products.map((element)=>(
+            <li key={element.id} style={{listStyle:"number"}}><img src={element.image} alt={element.title} style={{ width: "200px", height: "auto" }} />
+    <p>{element.title}</p></li>
+        ))}
+    </ul>
+</div>
     )
-
 }
-export default UseEffectAPI
+export default UseEffectAPI;
