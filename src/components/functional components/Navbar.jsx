@@ -20,7 +20,7 @@ const Navbar=()=>{
                             <ul className="dropdown-menu">
                                 <li><Link to="/usestate" >UseState</Link></li>
                                 <li><Link to="/useeffect">UseEffect</Link></li>
-                                <li><Link to="/useapi">UseEffect</Link></li>
+                                <li><Link to="/useapi">UseEffectAPI</Link></li>
                                 <li><Link to="/useref">UseRef</Link></li>
                                 <li><Link to="/usereducer">UseReducer</Link></li>
                                 <li><Link to="/usememo">UseMemo</Link></li>
