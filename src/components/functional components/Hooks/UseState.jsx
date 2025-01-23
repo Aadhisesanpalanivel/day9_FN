@@ -3,7 +3,7 @@ var UseState=()=>{
     var initialValue=0;
     var[num,setNum]=useState(initialValue)
     return(
-        <div>
+        <div style={{textAlign:"center"}}>
         <h1>This is useState Example</h1>
         <h4>The number is {num}</h4>
         <button onClick={()=>setNum(num+1)}>+</button>

@@ -14,19 +14,23 @@ const Navbar=()=>{
                  <li><Link to='/About' className="link">About</Link></li>
                  <li><Link to='/Gallery' className="link">Gallery</Link></li>
                  <li><Link to='/Contact' className="link">Contact</Link></li>
-                 <div>
-                        <span onMouseEnter={(toggleDropDown)} onMouseLeave={(toggleDropDown) }>Hooks</span>
+                 <div className="dropdown">
+                        <div  className="link" onClick={(toggleDropDown)} onLeave={(toggleDropDown)}>Hooks</div>
                         {dropdown &&(
-                            <ul>
+                            <ul className="dropdown-menu">
                                 <li><Link to="/usestate" >UseState</Link></li>
                                 <li><Link to="/useeffect">UseEffect</Link></li>
+                                <li><Link to="/useapi">UseEffect</Link></li>
+                                <li><Link to="/useref">UseRef</Link></li>
+                                <li><Link to="/usereducer">UseReducer</Link></li>
+                                <li><Link to="/usememo">UseMemo</Link></li>
+                                <li><Link to="/usecallback">UseCallback</Link></li>
                             </ul>)}
                     </div>
                  <li><Link to='/Signup' className="link">Signup</Link></li>
                  <li><Link to='/Login' className="link">Login</Link></li>
-                 <li><Link to='/usestate' className="link">UseState</Link></li>
-                 <li><Link to='/useeffect' className="link">UseEffect</Link></li>
-                 <li><Link to='/useapi' className="link">UseEffectAPI</Link></li>
+                 
+
              </ol>
          </nav>
      </header>

@@ -20,7 +20,7 @@ useEffect(()=>{
         .catch((err)=>console.log(err));
 },[]);
     return(
-            <div>
+            <div style={{textAlign:"center"}}>
                 <h1>This is UseEffect Example</h1>
                 <h3>The content inside my JSONPlaceholder API post</h3>
             <ul>
