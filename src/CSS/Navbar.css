@@ -9,6 +9,7 @@ ol{
     color:rgb(208, 60, 60);
     font-size: large;
     font-weight: bold;
+    text-decoration: none;
 }
 .link{
     text-decoration: none;
@@ -35,6 +36,7 @@ ol{
     background-color: rgb(193, 171, 47);
     width: 200px;
     display: block;
+    text-decoration: none;
     border-radius: 5px;
 }
 .dropdown-menu li {
