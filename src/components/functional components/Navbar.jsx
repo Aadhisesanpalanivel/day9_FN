@@ -3,8 +3,12 @@ import "../../CSS/Navbar.css"
 import {useState} from "react"
 const Navbar=()=>{
     var [dropdown,showDropdown]=useState(false)
+    var [dropdown1,showDropdown1]=useState(false)
     const toggleDropDown=()=>{
         showDropdown((dropdown)=>!dropdown)
+    }
+    const toggleDropDown1=()=>{
+        showDropdown1((dropdown1)=>!dropdown1)
     }
     return(
      <header>
@@ -36,7 +40,16 @@ const Navbar=()=>{
                                 
                             </ul>)}
                     </div>
-                    <li><Link to='/memo' className="link">Memo</Link></li>
+
+                    <div className="dropdown">
+                        <div  className="link" onClick={(toggleDropDown1)} onLeave={(toggleDropDown1)}>Memorization</div>
+                        {dropdown1 &&(
+                            <ul className="dropdown-menu">
+                                <li><Link to='/memo' className="link">Memo</Link></li>
+                               
+                        </ul>)}
+                    </div>
+                    
                  <li><Link to='/Signup' className="link">Signup</Link></li>
                  <li><Link to='/Login' className="link">Login</Link></li>
                  
