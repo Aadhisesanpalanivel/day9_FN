@@ -4,7 +4,9 @@ const ListItems = ({ func }) => {
   var [numbers, setNumbers] = useState([]);
   useEffect(() => {
   
-    setNumbers(func(4));
+    setNumbers(func(4
+      
+    ));
   }, [func]);
   return (
     <div>
