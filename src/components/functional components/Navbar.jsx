@@ -32,6 +32,7 @@ const Navbar=()=>{
                                 <li><Link to="/usememo">UseMemo</Link></li>
                                 <li><Link to="/usecallback">UseCallback</Link></li>
                                 <li><Link to="/student">Student</Link></li>
+                                <li><Link to="/usecustom">UseLocalStorage</Link></li>
                                 {/* <li><Link to="/Coe">CoE</Link></li>
                                 <li><Link to="/examresults">ExamResults</Link></li>
                                 <li><Link to="/faculty">Faculty</Link></li>
@@ -46,6 +47,7 @@ const Navbar=()=>{
                         {dropdown1 &&(
                             <ul className="dropdown-menu">
                                 <li><Link to='/memo' className="link">Memo</Link></li>
+                                <li><Link to='/lazy' className="link">LazySuspense</Link></li>
                                
                         </ul>)}
                     </div>

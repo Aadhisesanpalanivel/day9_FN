@@ -20,6 +20,9 @@ import ExamResults from "./components/functional components/ContextComponents/Ex
 import Faculty from "./components/functional components/ContextComponents/Faculty";
 import Invigilator from "./components/functional components/ContextComponents/Invigilator";
 import Memo from "./components/functional components/Memoization/Memo";
+import LazyloadingWithsuspense from "./components/functional components/Memoization/LazyloadingWithsuspense";
+import UseLocalStorage from "./components/functional components/Hooks/UseLocalStorage";
+import HoC from "./components/functional components/HoC/Hoc";
 function App(){
   
   return (
@@ -49,6 +52,9 @@ function App(){
         <Route path='/faculty' element={<Faculty/>}></Route>
         <Route path='/invigilator' element={<Invigilator/>}></Route> */}
         <Route path='/memo' element={<Memo/>}></Route>
+        <Route path='/lazy' element={<LazyloadingWithsuspense/>}></Route>
+        <Route path='/usecustom' element={<UseLocalStorage/>}></Route>
+        <Route path='/hoc' element={<HoC/>}></Route>
       </Routes>
      
     </Router>
