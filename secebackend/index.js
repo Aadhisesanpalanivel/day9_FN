@@ -1,53 +1,63 @@
-const express = require('express');
-const path = require('path');
-const mdb=require('mongoose');
-const dotenv=require('dotenv');
-const app = express();
-dotenv.config();
-const Signup = require("./models/signupSchema");
-
-app.use(express.json());
-mdb.connect(process.env.MONGODB_URL)
-.then(()=>{
-    console.log("MongoDB Connection Successful");
+const express = require('express')
+const path=require('path')
+const mdb=require('mongoose')
+const dotenv=require('dotenv')
+const Signup=require("./models/signupSchema")
+dotenv.config()
+const app = express()
+app.use(express.json())
+mdb.connect(process.env.MONGODB_URL).then(()=>{
+    console.log("MongoDB Connection Successful")
+}).catch((err)=>{
+    console.log("MongoDB Connection Unsuccessful", err)
 })
-.catch((err)=>{
-console.log("MongoDb connection unsuccessful",err);
-});
-
-
 app.get('/', (req, res) => {
-    res.send("Welcome to Backend friends")
+    res.send("Welcome to backend my friend\n Your Roller coster starts from now on\n Fasten your codebase so you can catchup what is been taught")
 })
-
-app.get('/static',(req,res) => {
+app.get('/static', (req, res) => {
     res.sendFile(path.join(__dirname,"index.html"))
-})
-
-app.post("/signup", (req, res) => {
-  var { firstName, lastName, userName, email, password } = req.body;
-  try {
-console.log("Inside try");
-      const newCustomer = new Signup({
-      firstName: firstName,
-      lastName: lastName,
-      userName: userName,
-      email: email,
-      password: password,
-    });
-    console.log(newCustomer);
-    newCustomer.save();
-    res.status(201).send("signup successfull");
-  } catch (err) {
-    res.status(400).send("Signup Unsuccessfull",err);
-  }
 });
-
-app.get('/getsignupdet',async(req,res)=>{
-  var signUpdet = await Signup.find()
-  res.status(200).json(signUpdet);
+app.post('/signup',(req,res)=>{
+var{firstName,lastName,userName,email,password}=req.body
+try{
+    const newSignup=new Signup({
+    firstName:firstName,
+    lastName:lastName,
+    userName:userName,
+    email:email,
+    password:password
+})
+newSignup.save()
+res.status(201).send("Values Received")
+}
+catch(err) {
+    res.status(400).send("Signup Unsuccessful",err)
+}
+/*console.log(req.body)
+console.log(firstName,lastName,userName,ElementInternals,password)
+res.json("Values received");*/
 })
 
-app.listen(3001, () => {
-    console.log("server connected")
-})
+app.post('/login',(req,res)=>{
+    var{userName,password}=req.body
+    try{
+        const newLogin=new Login({
+        userName:userName,
+        password:password
+    })
+    newLogin.save()
+    res.status(201).send("Login Successful")
+    }
+    catch(err) {
+        res.status(400).send("Login Unsuccessful",err)
+    }
+    })
+
+    app.get('/getsignupdet',async(request,res)=>{
+        varsignUpdet=await Signup.find()
+        res.status(200).json(signUpdet)
+    })
+    app.listen(3001, () => {
+        console.log("Server Started");
+    })
+    
