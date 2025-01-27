@@ -37,6 +37,7 @@ const Navbar=()=>{
                                 <li><Link to="/examresults">ExamResults</Link></li>
                                 <li><Link to="/faculty">Faculty</Link></li>
                                 <li><Link to="/invigilator">Invigilator</Link></li> */}
+                                <li><Link to="/toggle"className="link">Toggle</Link></li>
                                 <li><Link to='/reactlifecyclemethods' className="link">rct</Link></li>
                                 
                             </ul>)}

@@ -23,6 +23,7 @@ import Memo from "./components/functional components/Memoization/Memo";
 import LazyloadingWithsuspense from "./components/functional components/Memoization/LazyloadingWithsuspense";
 import UseLocalStorage from "./components/functional components/Hooks/UseLocalStorage";
 import HoC from "./components/functional components/HoC/Hoc";
+import DarkModeToggle from "./components/functional components/Hooks/DarkModeToggle";
 function App(){
   
   return (
@@ -51,6 +52,7 @@ function App(){
         <Route path='/examresults' element={<ExamResults/>}></Route>
         <Route path='/faculty' element={<Faculty/>}></Route>
         <Route path='/invigilator' element={<Invigilator/>}></Route> */}
+        <Route path="/toggle" element={<DarkModeToggle/>}></Route>
         <Route path='/memo' element={<Memo/>}></Route>
         <Route path='/lazy' element={<LazyloadingWithsuspense/>}></Route>
         <Route path='/usecustom' element={<UseLocalStorage/>}></Route>
